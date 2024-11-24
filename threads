@@ -1,0 +1,29 @@
+public class MyThread extends Thread { 
+ public MyThread() { 
+ super(); // Call the base class constructor 
+ start(); // Start the thread 
+ } 
+ public void run() { 
+ // This code will run in the child thread 
+ for (int i = 1; i <= 5; i++) { 
+ System.out.println("Child Thread: " + i); 
+ try { 
+ Thread.sleep(1000); // Sleep for 1 second 
+ } catch (InterruptedException e) { 
+ System.out.println(e); 
+ } 
+ } 
+ } 
+ public static void main(String[] args) { 
+ MyThread myThread = new MyThread(); 
+ // Main thread code 
+ for (int i = 1; i <= 5; i++) { 
+ System.out.println("Main Thread: " + i); 
+ try { 
+ Thread.sleep(1000); // Sleep for 1 second 
+ } catch (InterruptedException e) { 
+ System.out.println(e); 
+ } 
+ } 
+ } 
+}
